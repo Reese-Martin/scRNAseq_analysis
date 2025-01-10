@@ -41,3 +41,14 @@ adata.var["hb"] = adata.var_names.str.contains(("^HB[^(P)]"))
 sc.pp.calculate_qc_metrics(
     adata, qc_vars=["mt", "ribo", "hb"], inplace=True, percent_top=[20], log1p=True
 )
+
+### what are the new fields? some important ones are below
+# n_genes_by_counts in obs is gene counts per cell
+# total_counts in obs is the total number of counts for a cell. aka library size
+# pct_counts_mt is the % of counts that are MT genes. a quick check shows that highest % MT in our data
+max(adata.obs["pct_counts_mt"])
+
+# plot time!
+p1 = sns.displot(adata.obs["total_counts"], bins=100, kde=False)
+p2 = sc.pl.violin(adata, "pct_counts_mt")
+p3 = sc.pl.scatter(adata, "total_counts", "n_genes_by_counts", color="pct_counts_mt")
