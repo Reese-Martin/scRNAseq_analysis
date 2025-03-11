@@ -1,0 +1,2 @@
+This repo documents my journey teaching myself scRNAseq analysis. The work is largely derived from other tutorials, but I have found it is impossible to learn new computational techniques without some doing/practice and 
+that is what you will find here. In the future this will also likely be used as a reference resource for future projects, EX: somewhere I can check on the most appropriate way to run analysis.
